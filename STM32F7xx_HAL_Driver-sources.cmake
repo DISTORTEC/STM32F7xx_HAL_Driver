@@ -371,6 +371,8 @@ target_compile_options(STM32F7xx_HAL_Driver PRIVATE
 target_include_directories(STM32F7xx_HAL_Driver PUBLIC
 		${CMAKE_CURRENT_BINARY_DIR}/include
 		${CMAKE_CURRENT_LIST_DIR}/Inc)
+target_link_libraries(STM32F7xx_HAL_Driver PUBLIC
+		distortos::distortos)
 
 if(STM32F7xx_HAL_Driver_ADC)
 	target_sources(STM32F7xx_HAL_Driver PRIVATE
