@@ -27,7 +27,7 @@
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "stm32f7xx.h"
+#include "distortos/chip/CMSIS-proxy.h"
 #include "Legacy/stm32_hal_legacy.h"
 #include <stddef.h>
 
