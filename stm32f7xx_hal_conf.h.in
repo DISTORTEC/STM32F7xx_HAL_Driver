@@ -1,0 +1,395 @@
+/**
+ * \file
+ * \brief STM32F7xx_HAL_Driver configuration
+ *
+ * \warning
+ * Automatically generated file - do not edit!
+ *
+ * \date ${timestamp}
+ */
+
+#ifndef INCLUDE_STM32F7XX_HAL_CONF_H_
+#define INCLUDE_STM32F7XX_HAL_CONF_H_
+
+#include "STM32F7xx_HAL_Driver-configuration.h"
+
+#include "distortos/chip/CMSIS-proxy.h"
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif	/* def __cplusplus */
+
+/*---------------------------------------------------------------------------------------------------------------------+
+| global macros
++---------------------------------------------------------------------------------------------------------------------*/
+
+#ifdef DISTORTOS_CHIP_FLASH_ART_ACCELERATOR_ENABLE
+/** to enable instruction cache and prefetch */
+#define ART_ACCLERATOR_ENABLE DISTORTOS_CHIP_FLASH_ART_ACCELERATOR_ENABLE
+#endif	/* def DISTORTOS_CHIP_FLASH_ART_ACCELERATOR_ENABLE */
+
+#define HAL_MODULE_ENABLED
+
+#ifdef DISTORTOS_CHIP_RCC_HSE_FREQUENCY
+/** value of the external oscillator in Hz */
+#define HSE_VALUE DISTORTOS_CHIP_RCC_HSE_FREQUENCY
+#endif	/* def DISTORTOS_CHIP_RCC_HSE_FREQUENCY */
+
+#ifdef DISTORTOS_CHIP_FLASH_PREFETCH_ENABLE
+#define PREFETCH_ENABLE DISTORTOS_CHIP_FLASH_PREFETCH_ENABLE
+#endif	/* def DISTORTOS_CHIP_FLASH_PREFETCH_ENABLE */
+
+/** tick interrupt priority */
+#define TICK_INT_PRIORITY 0
+
+#define USE_RTOS 0
+
+#ifdef DISTORTOS_CHIP_VDD_MV
+/** value of VDD in mV */
+#define VDD_VALUE DISTORTOS_CHIP_VDD_MV
+#endif	/* def DISTORTOS_CHIP_VDD_MV */
+
+#ifdef USE_FULL_ASSERT
+
+void assert_failed(uint8_t* file, uint32_t line);
+
+/**
+ * \brief The assert_param() macro is used for function's parameters check.
+ *
+ * \param expr If expr is false, it calls assert_failed() function which reports the name of the source file and the
+ * source line number of the call that failed. If expr is true, it returns no value.
+ *
+ * \ret None
+ */
+
+#define assert_param(expr) ((expr) ? (void)0 : assert_failed((uint8_t*)__FILE__, __LINE__))
+
+#else
+
+#define assert_param(expr) ((void)0)
+
+#endif	/* USE_FULL_ASSERT */
+
+/*---------------------------------------------------------------------------------------------------------------------+
+| include headers of enabled modules
++---------------------------------------------------------------------------------------------------------------------*/
+
+#cmakedefine01 STM32F7xx_HAL_Driver_DMA
+#if STM32F7xx_HAL_Driver_DMA
+#define HAL_DMA_MODULE_ENABLED
+#include "stm32f7xx_hal_dma.h"
+#endif	/* STM32F7xx_HAL_Driver_DMA */
+#undef STM32F7xx_HAL_Driver_DMA
+
+#cmakedefine01 STM32F7xx_HAL_Driver_ADC
+#if STM32F7xx_HAL_Driver_ADC
+#define HAL_ADC_MODULE_ENABLED
+#include "stm32f7xx_hal_adc.h"
+#endif	/* STM32F7xx_HAL_Driver_ADC */
+#undef STM32F7xx_HAL_Driver_ADC
+
+#cmakedefine01 STM32F7xx_HAL_Driver_CAN
+#cmakedefine01 STM32F7xx_HAL_Driver_CAN_legacy_variant
+#if STM32F7xx_HAL_Driver_CAN
+#if STM32F7xx_HAL_Driver_CAN_legacy_variant == 0
+#define HAL_CAN_MODULE_ENABLED
+#include "stm32f7xx_hal_can.h"
+#else	/* STM32F7xx_HAL_Driver_CAN_legacy_variant != 0 */
+#define HAL_CAN_LEGACY_MODULE_ENABLED
+#include "stm32f7xx_hal_can_legacy.h"
+#endif	/* STM32F7xx_HAL_Driver_CAN_legacy_variant != 0 */
+#endif	/* STM32F7xx_HAL_Driver_CAN */
+#undef STM32F7xx_HAL_Driver_CAN
+#undef STM32F7xx_HAL_Driver_CAN_legacy_variant
+
+#cmakedefine01 STM32F7xx_HAL_Driver_CEC
+#if STM32F7xx_HAL_Driver_CEC
+#define HAL_CEC_MODULE_ENABLED
+#include "stm32f7xx_hal_cec.h"
+#endif	/* STM32F7xx_HAL_Driver_CEC */
+#undef STM32F7xx_HAL_Driver_CEC
+
+#define HAL_CORTEX_MODULE_ENABLED
+#include "stm32f7xx_hal_cortex.h"
+
+#cmakedefine01 STM32F7xx_HAL_Driver_CRC
+#if STM32F7xx_HAL_Driver_CRC
+#define HAL_CRC_MODULE_ENABLED
+#include "stm32f7xx_hal_crc.h"
+#endif	/* STM32F7xx_HAL_Driver_CRC */
+#undef STM32F7xx_HAL_Driver_CRC
+
+#cmakedefine01 STM32F7xx_HAL_Driver_CRYP
+#if STM32F7xx_HAL_Driver_CRYP
+#define HAL_CRYP_MODULE_ENABLED
+#include "stm32f7xx_hal_cryp.h"
+#endif	/* STM32F7xx_HAL_Driver_CRYP */
+#undef STM32F7xx_HAL_Driver_CRYP
+
+#cmakedefine01 STM32F7xx_HAL_Driver_DAC
+#if STM32F7xx_HAL_Driver_DAC
+#define HAL_DAC_MODULE_ENABLED
+#include "stm32f7xx_hal_dac.h"
+#endif	/* STM32F7xx_HAL_Driver_DAC */
+#undef STM32F7xx_HAL_Driver_DAC
+
+#cmakedefine01 STM32F7xx_HAL_Driver_DCMI
+#if STM32F7xx_HAL_Driver_DCMI
+#define HAL_DCMI_MODULE_ENABLED
+#include "stm32f7xx_hal_dcmi.h"
+#endif	/* STM32F7xx_HAL_Driver_DCMI */
+#undef STM32F7xx_HAL_Driver_DCMI
+
+#cmakedefine01 STM32F7xx_HAL_Driver_DFSDM
+#if STM32F7xx_HAL_Driver_DFSDM
+#define HAL_DFSDM_MODULE_ENABLED
+#include "stm32f7xx_hal_dfsdm.h"
+#endif	/* STM32F7xx_HAL_Driver_DFSDM */
+#undef STM32F7xx_HAL_Driver_DFSDM
+
+#cmakedefine01 STM32F7xx_HAL_Driver_DMA2D
+#if STM32F7xx_HAL_Driver_DMA2D
+#define HAL_DMA2D_MODULE_ENABLED
+#include "stm32f7xx_hal_dma2d.h"
+#endif	/* STM32F7xx_HAL_Driver_DMA2D */
+#undef STM32F7xx_HAL_Driver_DMA2D
+
+#cmakedefine01 STM32F7xx_HAL_Driver_DSI
+#if STM32F7xx_HAL_Driver_DSI
+#define HAL_DSI_MODULE_ENABLED
+#include "stm32f7xx_hal_dsi.h"
+#endif	/* STM32F7xx_HAL_Driver_DSI */
+#undef STM32F7xx_HAL_Driver_DSI
+
+#cmakedefine01 STM32F7xx_HAL_Driver_ETH
+#if STM32F7xx_HAL_Driver_ETH
+#define HAL_ETH_MODULE_ENABLED
+#include "stm32f7xx_hal_eth.h"
+#endif	/* STM32F7xx_HAL_Driver_ETH */
+#undef STM32F7xx_HAL_Driver_ETH
+
+#define HAL_FLASH_MODULE_ENABLED
+#include "stm32f7xx_hal_flash.h"
+
+#define HAL_GPIO_MODULE_ENABLED
+#include "stm32f7xx_hal_gpio.h"
+
+#cmakedefine01 STM32F7xx_HAL_Driver_HASH
+#if STM32F7xx_HAL_Driver_HASH
+#define HAL_HASH_MODULE_ENABLED
+#include "stm32f7xx_hal_hash.h"
+#endif	/* STM32F7xx_HAL_Driver_HASH */
+#undef STM32F7xx_HAL_Driver_HASH
+
+#cmakedefine01 STM32F7xx_HAL_Driver_HCD
+#if STM32F7xx_HAL_Driver_HCD
+#define HAL_HCD_MODULE_ENABLED
+#include "stm32f7xx_hal_hcd.h"
+#endif	/* STM32F7xx_HAL_Driver_HCD */
+#undef STM32F7xx_HAL_Driver_HCD
+
+#cmakedefine01 STM32F7xx_HAL_Driver_I2C
+#if STM32F7xx_HAL_Driver_I2C
+#define HAL_I2C_MODULE_ENABLED
+#include "stm32f7xx_hal_i2c.h"
+#endif	/* STM32F7xx_HAL_Driver_I2C */
+#undef STM32F7xx_HAL_Driver_I2C
+
+#cmakedefine01 STM32F7xx_HAL_Driver_I2S
+#if STM32F7xx_HAL_Driver_I2S
+#define HAL_I2S_MODULE_ENABLED
+#include "stm32f7xx_hal_i2s.h"
+#endif	/* STM32F7xx_HAL_Driver_I2S */
+#undef STM32F7xx_HAL_Driver_I2S
+
+#cmakedefine01 STM32F7xx_HAL_Driver_IRDA
+#if STM32F7xx_HAL_Driver_IRDA
+#define HAL_IRDA_MODULE_ENABLED
+#include "stm32f7xx_hal_irda.h"
+#endif	/* STM32F7xx_HAL_Driver_IRDA */
+#undef STM32F7xx_HAL_Driver_IRDA
+
+#cmakedefine01 STM32F7xx_HAL_Driver_IWDG
+#if STM32F7xx_HAL_Driver_IWDG
+#define HAL_IWDG_MODULE_ENABLED
+#include "stm32f7xx_hal_iwdg.h"
+#endif	/* STM32F7xx_HAL_Driver_IWDG */
+#undef STM32F7xx_HAL_Driver_IWDG
+
+#cmakedefine01 STM32F7xx_HAL_Driver_JPEG
+#if STM32F7xx_HAL_Driver_JPEG
+#define HAL_JPEG_MODULE_ENABLED
+#include "stm32f7xx_hal_jpeg.h"
+#endif	/* STM32F7xx_HAL_Driver_JPEG */
+#undef STM32F7xx_HAL_Driver_JPEG
+
+#cmakedefine01 STM32F7xx_HAL_Driver_LPTIM
+#if STM32F7xx_HAL_Driver_LPTIM
+#define HAL_LPTIM_MODULE_ENABLED
+#include "stm32f7xx_hal_lptim.h"
+#endif	/* STM32F7xx_HAL_Driver_LPTIM */
+#undef STM32F7xx_HAL_Driver_LPTIM
+
+#cmakedefine01 STM32F7xx_HAL_Driver_LTDC
+#if STM32F7xx_HAL_Driver_LTDC
+#define HAL_LTDC_MODULE_ENABLED
+#include "stm32f7xx_hal_ltdc.h"
+#endif	/* STM32F7xx_HAL_Driver_LTDC */
+#undef STM32F7xx_HAL_Driver_LTDC
+
+#cmakedefine01 STM32F7xx_HAL_Driver_MDIOS
+#if STM32F7xx_HAL_Driver_MDIOS
+#define HAL_MDIOS_MODULE_ENABLED
+#include "stm32f7xx_hal_mdios.h"
+#endif	/* STM32F7xx_HAL_Driver_MDIOS */
+#undef STM32F7xx_HAL_Driver_MDIOS
+
+#cmakedefine01 STM32F7xx_HAL_Driver_MMC
+#if STM32F7xx_HAL_Driver_MMC
+#define HAL_MMC_MODULE_ENABLED
+#include "stm32f7xx_hal_mmc.h"
+#endif	/* STM32F7xx_HAL_Driver_MMC */
+#undef STM32F7xx_HAL_Driver_MMC
+
+#cmakedefine01 STM32F7xx_HAL_Driver_NAND
+#if STM32F7xx_HAL_Driver_NAND
+#define HAL_NAND_MODULE_ENABLED
+#include "stm32f7xx_hal_nand.h"
+#endif	/* STM32F7xx_HAL_Driver_NAND */
+#undef STM32F7xx_HAL_Driver_NAND
+
+#cmakedefine01 STM32F7xx_HAL_Driver_NOR
+#if STM32F7xx_HAL_Driver_NOR
+#define HAL_NOR_MODULE_ENABLED
+#include "stm32f7xx_hal_nor.h"
+#endif	/* STM32F7xx_HAL_Driver_NOR */
+#undef STM32F7xx_HAL_Driver_NOR
+
+#cmakedefine01 STM32F7xx_HAL_Driver_PCD
+#if STM32F7xx_HAL_Driver_PCD
+#define HAL_PCD_MODULE_ENABLED
+#include "stm32f7xx_hal_pcd.h"
+#endif	/* STM32F7xx_HAL_Driver_PCD */
+#undef STM32F7xx_HAL_Driver_PCD
+
+#cmakedefine01 STM32F7xx_HAL_Driver_PWR
+#if STM32F7xx_HAL_Driver_PWR
+#define HAL_PWR_MODULE_ENABLED
+#include "stm32f7xx_hal_pwr.h"
+#endif	/* STM32F7xx_HAL_Driver_PWR */
+#undef STM32F7xx_HAL_Driver_PWR
+
+#cmakedefine01 STM32F7xx_HAL_Driver_QSPI
+#if STM32F7xx_HAL_Driver_QSPI
+#define HAL_QSPI_MODULE_ENABLED
+#include "stm32f7xx_hal_qspi.h"
+#endif	/* STM32F7xx_HAL_Driver_QSPI */
+#undef STM32F7xx_HAL_Driver_QSPI
+
+#define HAL_RCC_MODULE_ENABLED
+#include "stm32f7xx_hal_rcc.h"
+
+#cmakedefine01 STM32F7xx_HAL_Driver_RNG
+#if STM32F7xx_HAL_Driver_RNG
+#define HAL_RNG_MODULE_ENABLED
+#include "stm32f7xx_hal_rng.h"
+#endif	/* STM32F7xx_HAL_Driver_RNG */
+#undef STM32F7xx_HAL_Driver_RNG
+
+#cmakedefine01 STM32F7xx_HAL_Driver_RTC
+#if STM32F7xx_HAL_Driver_RTC
+#define HAL_RTC_MODULE_ENABLED
+#include "stm32f7xx_hal_rtc.h"
+#endif	/* STM32F7xx_HAL_Driver_RTC */
+#undef STM32F7xx_HAL_Driver_RTC
+
+#cmakedefine01 STM32F7xx_HAL_Driver_SAI
+#if STM32F7xx_HAL_Driver_SAI
+#define HAL_SAI_MODULE_ENABLED
+#include "stm32f7xx_hal_sai.h"
+#endif	/* STM32F7xx_HAL_Driver_SAI */
+#undef STM32F7xx_HAL_Driver_SAI
+
+#cmakedefine01 STM32F7xx_HAL_Driver_SD
+#if STM32F7xx_HAL_Driver_SD
+#define HAL_SD_MODULE_ENABLED
+#include "stm32f7xx_hal_sd.h"
+#endif	/* STM32F7xx_HAL_Driver_SD */
+#undef STM32F7xx_HAL_Driver_SD
+
+#cmakedefine01 STM32F7xx_HAL_Driver_SDRAM
+#if STM32F7xx_HAL_Driver_SDRAM
+#define HAL_SDRAM_MODULE_ENABLED
+#include "stm32f7xx_hal_sdram.h"
+#endif	/* STM32F7xx_HAL_Driver_SDRAM */
+#undef STM32F7xx_HAL_Driver_SDRAM
+
+#cmakedefine01 STM32F7xx_HAL_Driver_SMARTCARD
+#if STM32F7xx_HAL_Driver_SMARTCARD
+#define HAL_SMARTCARD_MODULE_ENABLED
+#include "stm32f7xx_hal_smartcard.h"
+#endif	/* STM32F7xx_HAL_Driver_SMARTCARD */
+#undef STM32F7xx_HAL_Driver_SMARTCARD
+
+#cmakedefine01 STM32F7xx_HAL_Driver_SMBUS
+#if STM32F7xx_HAL_Driver_SMBUS
+#define HAL_SMBUS_MODULE_ENABLED
+#include "stm32f7xx_hal_smbus.h"
+#endif	/* STM32F7xx_HAL_Driver_SMBUS */
+#undef STM32F7xx_HAL_Driver_SMBUS
+
+#cmakedefine01 STM32F7xx_HAL_Driver_SPDIFRX
+#if STM32F7xx_HAL_Driver_SPDIFRX
+#define HAL_SPDIFRX_MODULE_ENABLED
+#include "stm32f7xx_hal_spdifrx.h"
+#endif	/* STM32F7xx_HAL_Driver_SPDIFRX */
+#undef STM32F7xx_HAL_Driver_SPDIFRX
+
+#cmakedefine01 STM32F7xx_HAL_Driver_SPI
+#if STM32F7xx_HAL_Driver_SPI
+#define HAL_SPI_MODULE_ENABLED
+#include "stm32f7xx_hal_spi.h"
+#endif	/* STM32F7xx_HAL_Driver_SPI */
+#undef STM32F7xx_HAL_Driver_SPI
+
+#cmakedefine01 STM32F7xx_HAL_Driver_SRAM
+#if STM32F7xx_HAL_Driver_SRAM
+#define HAL_SRAM_MODULE_ENABLED
+#include "stm32f7xx_hal_sram.h"
+#endif	/* STM32F7xx_HAL_Driver_SRAM */
+#undef STM32F7xx_HAL_Driver_SRAM
+
+#cmakedefine01 STM32F7xx_HAL_Driver_TIM
+#if STM32F7xx_HAL_Driver_TIM
+#define HAL_TIM_MODULE_ENABLED
+#include "stm32f7xx_hal_tim.h"
+#endif	/* STM32F7xx_HAL_Driver_TIM */
+#undef STM32F7xx_HAL_Driver_TIM
+
+#cmakedefine01 STM32F7xx_HAL_Driver_UART
+#if STM32F7xx_HAL_Driver_UART
+#define HAL_UART_MODULE_ENABLED
+#include "stm32f7xx_hal_uart.h"
+#endif	/* STM32F7xx_HAL_Driver_UART */
+#undef STM32F7xx_HAL_Driver_UART
+
+#cmakedefine01 STM32F7xx_HAL_Driver_USART
+#if STM32F7xx_HAL_Driver_USART
+#define HAL_USART_MODULE_ENABLED
+#include "stm32f7xx_hal_usart.h"
+#endif	/* STM32F7xx_HAL_Driver_USART */
+#undef STM32F7xx_HAL_Driver_USART
+
+#cmakedefine01 STM32F7xx_HAL_Driver_WWDG
+#if STM32F7xx_HAL_Driver_WWDG
+#define HAL_WWDG_MODULE_ENABLED
+#include "stm32f7xx_hal_wwdg.h"
+#endif	/* STM32F7xx_HAL_Driver_WWDG */
+#undef STM32F7xx_HAL_Driver_WWDG
+
+#ifdef __cplusplus
+}	/* extern "C" */
+#endif	/* def __cplusplus */
+
+#endif	/* INCLUDE_STM32F7XX_HAL_CONF_H_ */
