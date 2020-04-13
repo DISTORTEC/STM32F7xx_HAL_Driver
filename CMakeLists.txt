@@ -1,11 +1,31 @@
 #
-# file: STM32F7xx_HAL_Driver-sources.cmake
+# file: CMakeLists.txt
 #
-# author: Copyright (C) 2019 Kamil Szczygiel http://www.distortec.com http://www.freddiechopin.info
+# This is the main CMakeLists.txt for STM32F7xx_HAL_Driver
+#
+# author: Copyright (C) 2019-2020 Kamil Szczygiel http://www.distortec.com http://www.freddiechopin.info
 #
 # This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0. If a copy of the MPL was not
 # distributed with this file, You can obtain one at http://mozilla.org/MPL/2.0/.
 #
+
+cmake_minimum_required(VERSION 3.8)
+project(STM32F7xx_HAL_Driver)
+
+if(NOT DEFINED STM32F7XX_HAL_DRIVER_CONFIGURATION_H_DIRECTORY)
+	message(SEND_ERROR "Variable with path to STM32F7xx_HAL_Driver-configuration.h - "
+			"STM32F7XX_HAL_DRIVER_CONFIGURATION_H_DIRECTORY - is not defined")
+endif()
+if(NOT IS_DIRECTORY "${STM32F7XX_HAL_DRIVER_CONFIGURATION_H_DIRECTORY}")
+	message(SEND_ERROR "Path to STM32F7xx_HAL_Driver-configuration.h - "
+			"STM32F7XX_HAL_DRIVER_CONFIGURATION_H_DIRECTORY = ${STM32F7XX_HAL_DRIVER_CONFIGURATION_H_DIRECTORY} - is "
+			"not valid")
+endif()
+if(NOT EXISTS "${STM32F7XX_HAL_DRIVER_CONFIGURATION_H_DIRECTORY}/STM32F7xx_HAL_Driver-configuration.h")
+	message(SEND_ERROR "Path to STM32F7xx_HAL_Driver-configuration.h - "
+			"STM32F7XX_HAL_DRIVER_CONFIGURATION_H_DIRECTORY = ${STM32F7XX_HAL_DRIVER_CONFIGURATION_H_DIRECTORY} - does "
+			"not contain STM32F7xx_HAL_Driver-configuration.h")
+endif()
 
 if(STM32F7xx_HAL_Driver_ADC)
 	list(APPEND STM32F7XX_HAL_DRIVER_DMA_DEPENDENTS "STM32F7xx_HAL_Driver's ADC")
@@ -333,277 +353,278 @@ distortosSetConfiguration(BOOLEAN
 
 message(STATUS "Generating ${CMAKE_CURRENT_BINARY_DIR}/include/stm32f7xx_hal_conf.h")
 string(TIMESTAMP timestamp "%Y-%m-%d %H:%M:%S")
-configure_file(${CMAKE_CURRENT_LIST_DIR}/stm32f7xx_hal_conf.h.in
+configure_file(stm32f7xx_hal_conf.h.in
 		${CMAKE_CURRENT_BINARY_DIR}/include/stm32f7xx_hal_conf.h)
 
 add_library(STM32F7xx_HAL_Driver STATIC
-		${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal.c
-		${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_cortex.c
-		${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_exti.c
-		${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_flash.c
-		${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_flash_ex.c
-		${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_gpio.c
-		${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_rcc.c
-		${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_rcc_ex.c
-		${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_ll_adc.c
-		${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_ll_crc.c
-		${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_ll_dac.c
-		${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_ll_dma.c
-		${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_ll_dma2d.c
-		${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_ll_exti.c
-		${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_ll_fmc.c
-		${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_ll_gpio.c
-		${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_ll_i2c.c
-		${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_ll_lptim.c
-		${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_ll_pwr.c
-		${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_ll_rcc.c
-		${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_ll_rng.c
-		${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_ll_rtc.c
-		${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_ll_sdmmc.c
-		${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_ll_spi.c
-		${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_ll_tim.c
-		${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_ll_usart.c
-		${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_ll_usb.c
-		${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_ll_utils.c)
+		Src/stm32f7xx_hal.c
+		Src/stm32f7xx_hal_cortex.c
+		Src/stm32f7xx_hal_exti.c
+		Src/stm32f7xx_hal_flash.c
+		Src/stm32f7xx_hal_flash_ex.c
+		Src/stm32f7xx_hal_gpio.c
+		Src/stm32f7xx_hal_rcc.c
+		Src/stm32f7xx_hal_rcc_ex.c
+		Src/stm32f7xx_ll_adc.c
+		Src/stm32f7xx_ll_crc.c
+		Src/stm32f7xx_ll_dac.c
+		Src/stm32f7xx_ll_dma.c
+		Src/stm32f7xx_ll_dma2d.c
+		Src/stm32f7xx_ll_exti.c
+		Src/stm32f7xx_ll_fmc.c
+		Src/stm32f7xx_ll_gpio.c
+		Src/stm32f7xx_ll_i2c.c
+		Src/stm32f7xx_ll_lptim.c
+		Src/stm32f7xx_ll_pwr.c
+		Src/stm32f7xx_ll_rcc.c
+		Src/stm32f7xx_ll_rng.c
+		Src/stm32f7xx_ll_rtc.c
+		Src/stm32f7xx_ll_sdmmc.c
+		Src/stm32f7xx_ll_spi.c
+		Src/stm32f7xx_ll_tim.c
+		Src/stm32f7xx_ll_usart.c
+		Src/stm32f7xx_ll_usb.c
+		Src/stm32f7xx_ll_utils.c)
 target_compile_options(STM32F7xx_HAL_Driver PRIVATE
 		-Wno-attributes
 		-Wno-unused-parameter)
 target_include_directories(STM32F7xx_HAL_Driver PUBLIC
 		${CMAKE_CURRENT_BINARY_DIR}/include
-		${CMAKE_CURRENT_LIST_DIR}/Inc)
+		${STM32F7XX_HAL_DRIVER_CONFIGURATION_H_DIRECTORY}
+		Inc)
 target_link_libraries(STM32F7xx_HAL_Driver PUBLIC
 		distortos::distortos)
 
 if(STM32F7xx_HAL_Driver_ADC)
 	target_sources(STM32F7xx_HAL_Driver PRIVATE
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_adc.c
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_adc_ex.c)
+			Src/stm32f7xx_hal_adc.c
+			Src/stm32f7xx_hal_adc_ex.c)
 endif(STM32F7xx_HAL_Driver_ADC)
 
 if(STM32F7xx_HAL_Driver_CAN)
 	if(NOT STM32F7xx_HAL_Driver_CAN_legacy_variant)
 		target_sources(STM32F7xx_HAL_Driver PRIVATE
-				${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_can.c)
+				Src/stm32f7xx_hal_can.c)
 	else()
 		target_include_directories(STM32F7xx_HAL_Driver PUBLIC
-					${CMAKE_CURRENT_LIST_DIR}/Inc/Legacy)
+				Inc/Legacy)
 		target_sources(STM32F7xx_HAL_Driver PRIVATE
-				${CMAKE_CURRENT_LIST_DIR}/Src/Legacy/stm32f7xx_hal_can.c)
+				Src/Legacy/stm32f7xx_hal_can.c)
 	endif()
 endif(STM32F7xx_HAL_Driver_CAN)
 
 if(STM32F7xx_HAL_Driver_CEC)
 	target_sources(STM32F7xx_HAL_Driver PRIVATE
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_cec.c)
+			Src/stm32f7xx_hal_cec.c)
 endif(STM32F7xx_HAL_Driver_CEC)
 
 if(STM32F7xx_HAL_Driver_CRC)
 	target_sources(STM32F7xx_HAL_Driver PRIVATE
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_crc.c
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_crc_ex.c)
+			Src/stm32f7xx_hal_crc.c
+			Src/stm32f7xx_hal_crc_ex.c)
 endif(STM32F7xx_HAL_Driver_CRC)
 
 if(STM32F7xx_HAL_Driver_CRYP)
 	target_sources(STM32F7xx_HAL_Driver PRIVATE
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_cryp.c
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_cryp_ex.c)
+			Src/stm32f7xx_hal_cryp.c
+			Src/stm32f7xx_hal_cryp_ex.c)
 endif(STM32F7xx_HAL_Driver_CRYP)
 
 if(STM32F7xx_HAL_Driver_DAC)
 	target_sources(STM32F7xx_HAL_Driver PRIVATE
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_dac.c
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_dac_ex.c)
+			Src/stm32f7xx_hal_dac.c
+			Src/stm32f7xx_hal_dac_ex.c)
 endif(STM32F7xx_HAL_Driver_DAC)
 
 if(STM32F7xx_HAL_Driver_DCMI)
 	target_sources(STM32F7xx_HAL_Driver PRIVATE
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_dcmi.c
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_dcmi_ex.c)
+			Src/stm32f7xx_hal_dcmi.c
+			Src/stm32f7xx_hal_dcmi_ex.c)
 endif(STM32F7xx_HAL_Driver_DCMI)
 
 if(STM32F7xx_HAL_Driver_DFSDM)
 	target_sources(STM32F7xx_HAL_Driver PRIVATE
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_dfsdm.c)
+			Src/stm32f7xx_hal_dfsdm.c)
 endif(STM32F7xx_HAL_Driver_DFSDM)
 
 if(STM32F7xx_HAL_Driver_DMA)
 	target_sources(STM32F7xx_HAL_Driver PRIVATE
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_dma.c
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_dma_ex.c)
+			Src/stm32f7xx_hal_dma.c
+			Src/stm32f7xx_hal_dma_ex.c)
 endif(STM32F7xx_HAL_Driver_DMA)
 
 if(STM32F7xx_HAL_Driver_DMA2D)
 	target_sources(STM32F7xx_HAL_Driver PRIVATE
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_dma2d.c)
+			Src/stm32f7xx_hal_dma2d.c)
 endif(STM32F7xx_HAL_Driver_DMA2D)
 
 if(STM32F7xx_HAL_Driver_DSI)
 	target_sources(STM32F7xx_HAL_Driver PRIVATE
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_dsi.c)
+			Src/stm32f7xx_hal_dsi.c)
 endif(STM32F7xx_HAL_Driver_DSI)
 
 if(STM32F7xx_HAL_Driver_ETH)
 	target_sources(STM32F7xx_HAL_Driver PRIVATE
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_eth.c)
+			Src/stm32f7xx_hal_eth.c)
 endif(STM32F7xx_HAL_Driver_ETH)
 
 if(STM32F7xx_HAL_Driver_HASH)
 	target_sources(STM32F7xx_HAL_Driver PRIVATE
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_hash.c
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_hash_ex.c)
+			Src/stm32f7xx_hal_hash.c
+			Src/stm32f7xx_hal_hash_ex.c)
 endif(STM32F7xx_HAL_Driver_HASH)
 
 if(STM32F7xx_HAL_Driver_HCD)
 	target_sources(STM32F7xx_HAL_Driver PRIVATE
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_hcd.c)
+			Src/stm32f7xx_hal_hcd.c)
 endif(STM32F7xx_HAL_Driver_HCD)
 
 if(STM32F7xx_HAL_Driver_I2C)
 	target_sources(STM32F7xx_HAL_Driver PRIVATE
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_i2c.c
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_i2c_ex.c)
+			Src/stm32f7xx_hal_i2c.c
+			Src/stm32f7xx_hal_i2c_ex.c)
 endif(STM32F7xx_HAL_Driver_I2C)
 
 if(STM32F7xx_HAL_Driver_I2S)
 	target_sources(STM32F7xx_HAL_Driver PRIVATE
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_i2s.c)
+			Src/stm32f7xx_hal_i2s.c)
 endif(STM32F7xx_HAL_Driver_I2S)
 
 if(STM32F7xx_HAL_Driver_IRDA)
 	target_sources(STM32F7xx_HAL_Driver PRIVATE
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_irda.c)
+			Src/stm32f7xx_hal_irda.c)
 endif(STM32F7xx_HAL_Driver_IRDA)
 
 if(STM32F7xx_HAL_Driver_IWDG)
 	target_sources(STM32F7xx_HAL_Driver PRIVATE
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_iwdg.c)
+			Src/stm32f7xx_hal_iwdg.c)
 endif(STM32F7xx_HAL_Driver_IWDG)
 
 if(STM32F7xx_HAL_Driver_JPEG)
 	target_sources(STM32F7xx_HAL_Driver PRIVATE
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_jpeg.c)
+			Src/stm32f7xx_hal_jpeg.c)
 endif(STM32F7xx_HAL_Driver_JPEG)
 
 if(STM32F7xx_HAL_Driver_LPTIM)
 	target_sources(STM32F7xx_HAL_Driver PRIVATE
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_lptim.c)
+			Src/stm32f7xx_hal_lptim.c)
 endif(STM32F7xx_HAL_Driver_LPTIM)
 
 if(STM32F7xx_HAL_Driver_LTDC)
 	target_sources(STM32F7xx_HAL_Driver PRIVATE
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_ltdc.c
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_ltdc_ex.c)
+			Src/stm32f7xx_hal_ltdc.c
+			Src/stm32f7xx_hal_ltdc_ex.c)
 endif(STM32F7xx_HAL_Driver_LTDC)
 
 if(STM32F7xx_HAL_Driver_MDIOS)
 	target_sources(STM32F7xx_HAL_Driver PRIVATE
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_mdios.c)
+			Src/stm32f7xx_hal_mdios.c)
 endif(STM32F7xx_HAL_Driver_MDIOS)
 
 if(STM32F7xx_HAL_Driver_MMC)
 	target_sources(STM32F7xx_HAL_Driver PRIVATE
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_mmc.c)
+			Src/stm32f7xx_hal_mmc.c)
 endif(STM32F7xx_HAL_Driver_MMC)
 
 if(STM32F7xx_HAL_Driver_NAND)
 	target_sources(STM32F7xx_HAL_Driver PRIVATE
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_nand.c)
+			Src/stm32f7xx_hal_nand.c)
 endif(STM32F7xx_HAL_Driver_NAND)
 
 if(STM32F7xx_HAL_Driver_NOR)
 	target_sources(STM32F7xx_HAL_Driver PRIVATE
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_nor.c)
+			Src/stm32f7xx_hal_nor.c)
 endif(STM32F7xx_HAL_Driver_NOR)
 
 if(STM32F7xx_HAL_Driver_PCD)
 	target_sources(STM32F7xx_HAL_Driver PRIVATE
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_pcd.c
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_pcd_ex.c)
+			Src/stm32f7xx_hal_pcd.c
+			Src/stm32f7xx_hal_pcd_ex.c)
 endif(STM32F7xx_HAL_Driver_PCD)
 
 if(STM32F7xx_HAL_Driver_PWR)
 	target_sources(STM32F7xx_HAL_Driver PRIVATE
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_pwr.c
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_pwr_ex.c)
+			Src/stm32f7xx_hal_pwr.c
+			Src/stm32f7xx_hal_pwr_ex.c)
 endif(STM32F7xx_HAL_Driver_PWR)
 
 if(STM32F7xx_HAL_Driver_QSPI)
 	target_sources(STM32F7xx_HAL_Driver PRIVATE
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_qspi.c)
+			Src/stm32f7xx_hal_qspi.c)
 endif(STM32F7xx_HAL_Driver_QSPI)
 
 if(STM32F7xx_HAL_Driver_RNG)
 	target_sources(STM32F7xx_HAL_Driver PRIVATE
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_rng.c)
+			Src/stm32f7xx_hal_rng.c)
 endif(STM32F7xx_HAL_Driver_RNG)
 
 if(STM32F7xx_HAL_Driver_RTC)
 	target_sources(STM32F7xx_HAL_Driver PRIVATE
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_rtc.c
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_rtc_ex.c)
+			Src/stm32f7xx_hal_rtc.c
+			Src/stm32f7xx_hal_rtc_ex.c)
 endif(STM32F7xx_HAL_Driver_RTC)
 
 if(STM32F7xx_HAL_Driver_SAI)
 	target_sources(STM32F7xx_HAL_Driver PRIVATE
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_sai.c
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_sai_ex.c)
+			Src/stm32f7xx_hal_sai.c
+			Src/stm32f7xx_hal_sai_ex.c)
 endif(STM32F7xx_HAL_Driver_SAI)
 
 if(STM32F7xx_HAL_Driver_SD)
 	target_sources(STM32F7xx_HAL_Driver PRIVATE
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_sd.c)
+			Src/stm32f7xx_hal_sd.c)
 endif(STM32F7xx_HAL_Driver_SD)
 
 if(STM32F7xx_HAL_Driver_SDRAM)
 	target_sources(STM32F7xx_HAL_Driver PRIVATE
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_sdram.c)
+			Src/stm32f7xx_hal_sdram.c)
 endif(STM32F7xx_HAL_Driver_SDRAM)
 
 if(STM32F7xx_HAL_Driver_SMARTCARD)
 	target_sources(STM32F7xx_HAL_Driver PRIVATE
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_smartcard.c
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_smartcard_ex.c)
+			Src/stm32f7xx_hal_smartcard.c
+			Src/stm32f7xx_hal_smartcard_ex.c)
 endif(STM32F7xx_HAL_Driver_SMARTCARD)
 
 if(STM32F7xx_HAL_Driver_SMBUS)
 	target_sources(STM32F7xx_HAL_Driver PRIVATE
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_smbus.c)
+			Src/stm32f7xx_hal_smbus.c)
 endif(STM32F7xx_HAL_Driver_SMBUS)
 
 if(STM32F7xx_HAL_Driver_SPDIFRX)
 	target_sources(STM32F7xx_HAL_Driver PRIVATE
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_spdifrx.c)
+			Src/stm32f7xx_hal_spdifrx.c)
 endif(STM32F7xx_HAL_Driver_SPDIFRX)
 
 if(STM32F7xx_HAL_Driver_SPI)
 	target_sources(STM32F7xx_HAL_Driver PRIVATE
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_spi.c
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_spi_ex.c)
+			Src/stm32f7xx_hal_spi.c
+			Src/stm32f7xx_hal_spi_ex.c)
 endif(STM32F7xx_HAL_Driver_SPI)
 
 if(STM32F7xx_HAL_Driver_SRAM)
 	target_sources(STM32F7xx_HAL_Driver PRIVATE
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_sram.c)
+			Src/stm32f7xx_hal_sram.c)
 endif(STM32F7xx_HAL_Driver_SRAM)
 
 if(STM32F7xx_HAL_Driver_TIM)
 	target_sources(STM32F7xx_HAL_Driver PRIVATE
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_tim.c
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_tim_ex.c)
+			Src/stm32f7xx_hal_tim.c
+			Src/stm32f7xx_hal_tim_ex.c)
 endif(STM32F7xx_HAL_Driver_TIM)
 
 if(STM32F7xx_HAL_Driver_UART)
 	target_sources(STM32F7xx_HAL_Driver PRIVATE
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_uart.c
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_uart_ex.c)
+			Src/stm32f7xx_hal_uart.c
+			Src/stm32f7xx_hal_uart_ex.c)
 endif(STM32F7xx_HAL_Driver_UART)
 
 if(STM32F7xx_HAL_Driver_USART)
 	target_sources(STM32F7xx_HAL_Driver PRIVATE
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_usart.c)
+			Src/stm32f7xx_hal_usart.c)
 endif(STM32F7xx_HAL_Driver_USART)
 
 if(STM32F7xx_HAL_Driver_WWDG)
 	target_sources(STM32F7xx_HAL_Driver PRIVATE
-			${CMAKE_CURRENT_LIST_DIR}/Src/stm32f7xx_hal_wwdg.c)
+			Src/stm32f7xx_hal_wwdg.c)
 endif(STM32F7xx_HAL_Driver_WWDG)
