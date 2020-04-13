@@ -91,13 +91,13 @@ endif()
 distortosSetConfiguration(BOOLEAN
 		STM32F7xx_HAL_Driver_ADC
 		OFF
- 		HELP "Enable STM32F7xx_HAL_Driver's ADC module."
+		HELP "Enable STM32F7xx_HAL_Driver's ADC module."
 		NO_OUTPUT)
 
 distortosSetConfiguration(BOOLEAN
 		STM32F7xx_HAL_Driver_CAN
 		OFF
- 		HELP "Enable STM32F7xx_HAL_Driver's CAN module."
+		HELP "Enable STM32F7xx_HAL_Driver's CAN module."
 		NO_OUTPUT)
 
 if(STM32F7xx_HAL_Driver_CAN)
@@ -105,7 +105,7 @@ if(STM32F7xx_HAL_Driver_CAN)
 	distortosSetConfiguration(BOOLEAN
 			STM32F7xx_HAL_Driver_CAN_legacy_variant
 			OFF
- 			HELP "Select legacy variant of STM32F7xx_HAL_Driver's CAN module."
+			HELP "Select legacy variant of STM32F7xx_HAL_Driver's CAN module."
 			NO_OUTPUT)
 
 endif(STM32F7xx_HAL_Driver_CAN)
@@ -113,37 +113,37 @@ endif(STM32F7xx_HAL_Driver_CAN)
 distortosSetConfiguration(BOOLEAN
 		STM32F7xx_HAL_Driver_CEC
 		OFF
- 		HELP "Enable STM32F7xx_HAL_Driver's CEC module."
+		HELP "Enable STM32F7xx_HAL_Driver's CEC module."
 		NO_OUTPUT)
 
 distortosSetConfiguration(BOOLEAN
 		STM32F7xx_HAL_Driver_CRC
 		OFF
- 		HELP "Enable STM32F7xx_HAL_Driver's CRC module."
+		HELP "Enable STM32F7xx_HAL_Driver's CRC module."
 		NO_OUTPUT)
 
 distortosSetConfiguration(BOOLEAN
 		STM32F7xx_HAL_Driver_CRYP
 		OFF
- 		HELP "Enable STM32F7xx_HAL_Driver's CRYP module."
+		HELP "Enable STM32F7xx_HAL_Driver's CRYP module."
 		NO_OUTPUT)
 
 distortosSetConfiguration(BOOLEAN
 		STM32F7xx_HAL_Driver_DAC
 		OFF
- 		HELP "Enable STM32F7xx_HAL_Driver's DAC module."
+		HELP "Enable STM32F7xx_HAL_Driver's DAC module."
 		NO_OUTPUT)
 
 distortosSetConfiguration(BOOLEAN
 		STM32F7xx_HAL_Driver_DCMI
 		OFF
- 		HELP "Enable STM32F7xx_HAL_Driver's DCMI module."
+		HELP "Enable STM32F7xx_HAL_Driver's DCMI module."
 		NO_OUTPUT)
 
 distortosSetConfiguration(BOOLEAN
 		STM32F7xx_HAL_Driver_DFSDM
 		OFF
- 		HELP "Enable STM32F7xx_HAL_Driver's DFSDM module."
+		HELP "Enable STM32F7xx_HAL_Driver's DFSDM module."
 		NO_OUTPUT)
 
 distortosSetConfiguration(BOOLEAN
@@ -156,199 +156,199 @@ distortosSetConfiguration(BOOLEAN
 distortosSetConfiguration(BOOLEAN
 		STM32F7xx_HAL_Driver_DMA2D
 		OFF
- 		HELP "Enable STM32F7xx_HAL_Driver's DMA2D module."
+		HELP "Enable STM32F7xx_HAL_Driver's DMA2D module."
 		NO_OUTPUT)
 
 distortosSetConfiguration(BOOLEAN
 		STM32F7xx_HAL_Driver_DSI
 		OFF
- 		HELP "Enable STM32F7xx_HAL_Driver's DSI module."
+		HELP "Enable STM32F7xx_HAL_Driver's DSI module."
 		NO_OUTPUT)
 
 distortosSetConfiguration(BOOLEAN
 		STM32F7xx_HAL_Driver_ETH
 		OFF
- 		HELP "Enable STM32F7xx_HAL_Driver's ETH module."
+		HELP "Enable STM32F7xx_HAL_Driver's ETH module."
 		NO_OUTPUT)
 
 distortosSetConfiguration(BOOLEAN
 		STM32F7xx_HAL_Driver_HASH
 		OFF
- 		HELP "Enable STM32F7xx_HAL_Driver's HASH module."
+		HELP "Enable STM32F7xx_HAL_Driver's HASH module."
 		NO_OUTPUT)
 
 distortosSetConfiguration(BOOLEAN
 		STM32F7xx_HAL_Driver_HCD
 		OFF
- 		HELP "Enable STM32F7xx_HAL_Driver's HCD module."
+		HELP "Enable STM32F7xx_HAL_Driver's HCD module."
 		NO_OUTPUT)
 
 distortosSetConfiguration(BOOLEAN
 		STM32F7xx_HAL_Driver_I2C
 		OFF
- 		HELP "Enable STM32F7xx_HAL_Driver's I2C module."
+		HELP "Enable STM32F7xx_HAL_Driver's I2C module."
 		NO_OUTPUT)
 
 distortosSetConfiguration(BOOLEAN
 		STM32F7xx_HAL_Driver_I2S
 		OFF
- 		HELP "Enable STM32F7xx_HAL_Driver's I2S module."
+		HELP "Enable STM32F7xx_HAL_Driver's I2S module."
 		NO_OUTPUT)
 
 distortosSetConfiguration(BOOLEAN
 		STM32F7xx_HAL_Driver_IRDA
 		OFF
- 		HELP "Enable STM32F7xx_HAL_Driver's IRDA module."
+		HELP "Enable STM32F7xx_HAL_Driver's IRDA module."
 		NO_OUTPUT)
 
 distortosSetConfiguration(BOOLEAN
 		STM32F7xx_HAL_Driver_IWDG
 		OFF
- 		HELP "Enable STM32F7xx_HAL_Driver's IWDG module."
+		HELP "Enable STM32F7xx_HAL_Driver's IWDG module."
 		NO_OUTPUT)
 
 distortosSetConfiguration(BOOLEAN
 		STM32F7xx_HAL_Driver_JPEG
 		OFF
- 		HELP "Enable STM32F7xx_HAL_Driver's JPEG module."
+		HELP "Enable STM32F7xx_HAL_Driver's JPEG module."
 		NO_OUTPUT)
 
 distortosSetConfiguration(BOOLEAN
 		STM32F7xx_HAL_Driver_LPTIM
 		OFF
- 		HELP "Enable STM32F7xx_HAL_Driver's LPTIM module."
+		HELP "Enable STM32F7xx_HAL_Driver's LPTIM module."
 		NO_OUTPUT)
 
 distortosSetConfiguration(BOOLEAN
 		STM32F7xx_HAL_Driver_LTDC
 		OFF
- 		HELP "Enable STM32F7xx_HAL_Driver's LTDC module."
+		HELP "Enable STM32F7xx_HAL_Driver's LTDC module."
 		NO_OUTPUT)
 
 distortosSetConfiguration(BOOLEAN
 		STM32F7xx_HAL_Driver_MDIOS
 		OFF
- 		HELP "Enable STM32F7xx_HAL_Driver's MDIOS module."
+		HELP "Enable STM32F7xx_HAL_Driver's MDIOS module."
 		NO_OUTPUT)
 
 distortosSetConfiguration(BOOLEAN
 		STM32F7xx_HAL_Driver_MMC
 		OFF
- 		HELP "Enable STM32F7xx_HAL_Driver's MMC module."
+		HELP "Enable STM32F7xx_HAL_Driver's MMC module."
 		NO_OUTPUT)
 
 distortosSetConfiguration(BOOLEAN
 		STM32F7xx_HAL_Driver_NAND
 		OFF
- 		HELP "Enable STM32F7xx_HAL_Driver's NAND module."
+		HELP "Enable STM32F7xx_HAL_Driver's NAND module."
 		NO_OUTPUT)
 
 distortosSetConfiguration(BOOLEAN
 		STM32F7xx_HAL_Driver_NOR
 		OFF
- 		HELP "Enable STM32F7xx_HAL_Driver's NOR module."
+		HELP "Enable STM32F7xx_HAL_Driver's NOR module."
 		NO_OUTPUT)
 
 distortosSetConfiguration(BOOLEAN
 		STM32F7xx_HAL_Driver_PCD
 		OFF
- 		HELP "Enable STM32F7xx_HAL_Driver's PCD module."
+		HELP "Enable STM32F7xx_HAL_Driver's PCD module."
 		NO_OUTPUT)
 
 distortosSetConfiguration(BOOLEAN
 		STM32F7xx_HAL_Driver_PWR
 		OFF
- 		HELP "Enable STM32F7xx_HAL_Driver's PWR module."
+		HELP "Enable STM32F7xx_HAL_Driver's PWR module."
 		NO_OUTPUT)
 
 distortosSetConfiguration(BOOLEAN
 		STM32F7xx_HAL_Driver_QSPI
 		OFF
- 		HELP "Enable STM32F7xx_HAL_Driver's QSPI module."
+		HELP "Enable STM32F7xx_HAL_Driver's QSPI module."
 		NO_OUTPUT)
 
 distortosSetConfiguration(BOOLEAN
 		STM32F7xx_HAL_Driver_RNG
 		OFF
- 		HELP "Enable STM32F7xx_HAL_Driver's RNG module."
+		HELP "Enable STM32F7xx_HAL_Driver's RNG module."
 		NO_OUTPUT)
 
 distortosSetConfiguration(BOOLEAN
 		STM32F7xx_HAL_Driver_RTC
 		OFF
- 		HELP "Enable STM32F7xx_HAL_Driver's RTC module."
+		HELP "Enable STM32F7xx_HAL_Driver's RTC module."
 		NO_OUTPUT)
 
 distortosSetConfiguration(BOOLEAN
 		STM32F7xx_HAL_Driver_SAI
 		OFF
- 		HELP "Enable STM32F7xx_HAL_Driver's SAI module."
+		HELP "Enable STM32F7xx_HAL_Driver's SAI module."
 		NO_OUTPUT)
 
 distortosSetConfiguration(BOOLEAN
 		STM32F7xx_HAL_Driver_SD
 		OFF
- 		HELP "Enable STM32F7xx_HAL_Driver's SD module."
+		HELP "Enable STM32F7xx_HAL_Driver's SD module."
 		NO_OUTPUT)
 
 distortosSetConfiguration(BOOLEAN
 		STM32F7xx_HAL_Driver_SDRAM
 		OFF
- 		HELP "Enable STM32F7xx_HAL_Driver's SDRAM module."
+		HELP "Enable STM32F7xx_HAL_Driver's SDRAM module."
 		NO_OUTPUT)
 
 distortosSetConfiguration(BOOLEAN
 		STM32F7xx_HAL_Driver_SMARTCARD
 		OFF
- 		HELP "Enable STM32F7xx_HAL_Driver's SMARTCARD module."
+		HELP "Enable STM32F7xx_HAL_Driver's SMARTCARD module."
 		NO_OUTPUT)
 
 distortosSetConfiguration(BOOLEAN
 		STM32F7xx_HAL_Driver_SMBUS
 		OFF
- 		HELP "Enable STM32F7xx_HAL_Driver's SMBUS module."
+		HELP "Enable STM32F7xx_HAL_Driver's SMBUS module."
 		NO_OUTPUT)
 
 distortosSetConfiguration(BOOLEAN
 		STM32F7xx_HAL_Driver_SPDIFRX
 		OFF
- 		HELP "Enable STM32F7xx_HAL_Driver's SPDIFRX module."
+		HELP "Enable STM32F7xx_HAL_Driver's SPDIFRX module."
 		NO_OUTPUT)
 
 distortosSetConfiguration(BOOLEAN
 		STM32F7xx_HAL_Driver_SPI
 		OFF
- 		HELP "Enable STM32F7xx_HAL_Driver's SPI module."
+		HELP "Enable STM32F7xx_HAL_Driver's SPI module."
 		NO_OUTPUT)
 
 distortosSetConfiguration(BOOLEAN
 		STM32F7xx_HAL_Driver_SRAM
 		OFF
- 		HELP "Enable STM32F7xx_HAL_Driver's SRAM module."
+		HELP "Enable STM32F7xx_HAL_Driver's SRAM module."
 		NO_OUTPUT)
 
 distortosSetConfiguration(BOOLEAN
 		STM32F7xx_HAL_Driver_TIM
 		OFF
- 		HELP "Enable STM32F7xx_HAL_Driver's TIM module."
+		HELP "Enable STM32F7xx_HAL_Driver's TIM module."
 		NO_OUTPUT)
 
 distortosSetConfiguration(BOOLEAN
 		STM32F7xx_HAL_Driver_UART
 		OFF
- 		HELP "Enable STM32F7xx_HAL_Driver's UART module."
+		HELP "Enable STM32F7xx_HAL_Driver's UART module."
 		NO_OUTPUT)
 
 distortosSetConfiguration(BOOLEAN
 		STM32F7xx_HAL_Driver_USART
 		OFF
- 		HELP "Enable STM32F7xx_HAL_Driver's USART module."
+		HELP "Enable STM32F7xx_HAL_Driver's USART module."
 		NO_OUTPUT)
 
 distortosSetConfiguration(BOOLEAN
 		STM32F7xx_HAL_Driver_WWDG
 		OFF
- 		HELP "Enable STM32F7xx_HAL_Driver's WWDG module."
+		HELP "Enable STM32F7xx_HAL_Driver's WWDG module."
 		NO_OUTPUT)
 
 message(STATUS "Generating ${CMAKE_CURRENT_BINARY_DIR}/include/stm32f7xx_hal_conf.h")
