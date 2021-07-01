@@ -2692,8 +2692,8 @@ __weak void HAL_TIM_OnePulse_MspDeInit(TIM_HandleTypeDef *htim)
   * @brief  Starts the TIM One Pulse signal generation.
   * @note Though OutputChannel parameter is deprecated and ignored by the function
   *        it has been kept to avoid HAL_TIM API compatibility break.
-  * @note The pulse output channel is determined when calling 
-  *       @ref HAL_TIM_OnePulse_ConfigChannel(). 
+  * @note The pulse output channel is determined when calling
+  *       @ref HAL_TIM_OnePulse_ConfigChannel().
   * @param  htim TIM One Pulse handle
   * @param  OutputChannel See note above
   * @retval HAL status
@@ -2749,8 +2749,8 @@ HAL_StatusTypeDef HAL_TIM_OnePulse_Start(TIM_HandleTypeDef *htim, uint32_t Outpu
   * @brief  Stops the TIM One Pulse signal generation.
   * @note Though OutputChannel parameter is deprecated and ignored by the function
   *        it has been kept to avoid HAL_TIM API compatibility break.
-  * @note The pulse output channel is determined when calling 
-  *       @ref HAL_TIM_OnePulse_ConfigChannel(). 
+  * @note The pulse output channel is determined when calling
+  *       @ref HAL_TIM_OnePulse_ConfigChannel().
   * @param  htim TIM One Pulse handle
   * @param  OutputChannel See note above
   * @retval HAL status
@@ -2792,8 +2792,8 @@ HAL_StatusTypeDef HAL_TIM_OnePulse_Stop(TIM_HandleTypeDef *htim, uint32_t Output
   * @brief  Starts the TIM One Pulse signal generation in interrupt mode.
   * @note Though OutputChannel parameter is deprecated and ignored by the function
   *        it has been kept to avoid HAL_TIM API compatibility break.
-  * @note The pulse output channel is determined when calling 
-  *       @ref HAL_TIM_OnePulse_ConfigChannel(). 
+  * @note The pulse output channel is determined when calling
+  *       @ref HAL_TIM_OnePulse_ConfigChannel().
   * @param  htim TIM One Pulse handle
   * @param  OutputChannel See note above
   * @retval HAL status
@@ -2855,8 +2855,8 @@ HAL_StatusTypeDef HAL_TIM_OnePulse_Start_IT(TIM_HandleTypeDef *htim, uint32_t Ou
   * @brief  Stops the TIM One Pulse signal generation in interrupt mode.
   * @note Though OutputChannel parameter is deprecated and ignored by the function
   *        it has been kept to avoid HAL_TIM API compatibility break.
-  * @note The pulse output channel is determined when calling 
-  *       @ref HAL_TIM_OnePulse_ConfigChannel(). 
+  * @note The pulse output channel is determined when calling
+  *       @ref HAL_TIM_OnePulse_ConfigChannel().
   * @param  htim TIM One Pulse handle
   * @param  OutputChannel See note above
   * @retval HAL status
@@ -4429,9 +4429,9 @@ HAL_StatusTypeDef HAL_TIM_OnePulse_ConfigChannel(TIM_HandleTypeDef *htim,  TIM_O
   *            @arg TIM_DMABASE_CCR4
   *            @arg TIM_DMABASE_BDTR
   *            @arg TIM_DMABASE_OR
-  *            @arg TIM_DMABASE_CCMR3 
-  *            @arg TIM_DMABASE_CCR5 
-  *            @arg TIM_DMABASE_CCR6 
+  *            @arg TIM_DMABASE_CCMR3
+  *            @arg TIM_DMABASE_CCR5
+  *            @arg TIM_DMABASE_CCR6
   *            @arg TIM_DMABASE_AF1  (*)
   *            @arg TIM_DMABASE_AF2  (*)
   *         (*) value not defined in all devices
@@ -4481,9 +4481,9 @@ HAL_StatusTypeDef HAL_TIM_DMABurst_WriteStart(TIM_HandleTypeDef *htim, uint32_t 
   *            @arg TIM_DMABASE_CCR4
   *            @arg TIM_DMABASE_BDTR
   *            @arg TIM_DMABASE_OR
-  *            @arg TIM_DMABASE_CCMR3 
-  *            @arg TIM_DMABASE_CCR5 
-  *            @arg TIM_DMABASE_CCR6 
+  *            @arg TIM_DMABASE_CCMR3
+  *            @arg TIM_DMABASE_CCR5
+  *            @arg TIM_DMABASE_CCR6
   *            @arg TIM_DMABASE_AF1  (*)
   *            @arg TIM_DMABASE_AF2  (*)
   *         (*) value not defined in all devices
@@ -4761,9 +4761,9 @@ HAL_StatusTypeDef HAL_TIM_DMABurst_WriteStop(TIM_HandleTypeDef *htim, uint32_t B
   *            @arg TIM_DMABASE_CCR4
   *            @arg TIM_DMABASE_BDTR
   *            @arg TIM_DMABASE_OR
-  *            @arg TIM_DMABASE_CCMR3 
-  *            @arg TIM_DMABASE_CCR5 
-  *            @arg TIM_DMABASE_CCR6 
+  *            @arg TIM_DMABASE_CCMR3
+  *            @arg TIM_DMABASE_CCR5
+  *            @arg TIM_DMABASE_CCR6
   *            @arg TIM_DMABASE_AF1  (*)
   *            @arg TIM_DMABASE_AF2  (*)
   *         (*) value not defined in all devices
@@ -4813,9 +4813,9 @@ HAL_StatusTypeDef HAL_TIM_DMABurst_ReadStart(TIM_HandleTypeDef *htim, uint32_t B
   *            @arg TIM_DMABASE_CCR4
   *            @arg TIM_DMABASE_BDTR
   *            @arg TIM_DMABASE_OR
-  *            @arg TIM_DMABASE_CCMR3 
-  *            @arg TIM_DMABASE_CCR5 
-  *            @arg TIM_DMABASE_CCR6 
+  *            @arg TIM_DMABASE_CCMR3
+  *            @arg TIM_DMABASE_CCR5
+  *            @arg TIM_DMABASE_CCR6
   *            @arg TIM_DMABASE_AF1  (*)
   *            @arg TIM_DMABASE_AF2  (*)
   *         (*) value not defined in all devices

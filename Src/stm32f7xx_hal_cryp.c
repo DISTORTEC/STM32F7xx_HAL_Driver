@@ -1022,7 +1022,7 @@ HAL_StatusTypeDef HAL_CRYP_Encrypt(CRYP_HandleTypeDef *hcryp, uint32_t *Input, u
         /* AES encryption */
         status = CRYP_AES_Encrypt(hcryp, Timeout);
         break;
-        
+
       case CRYP_AES_GCM:
 
         /* AES GCM encryption */
@@ -1035,7 +1035,7 @@ HAL_StatusTypeDef HAL_CRYP_Encrypt(CRYP_HandleTypeDef *hcryp, uint32_t *Input, u
         /* AES CCM encryption */
         status = CRYP_AESCCM_Process(hcryp, Timeout);
         break;
-        
+
       default:
         hcryp->ErrorCode |= HAL_CRYP_ERROR_NOT_SUPPORTED;
         /* Change the CRYP peripheral state */
@@ -1197,7 +1197,7 @@ HAL_StatusTypeDef HAL_CRYP_Decrypt(CRYP_HandleTypeDef *hcryp, uint32_t *Input, u
         /* AES decryption */
         status = CRYP_AES_Decrypt(hcryp, Timeout);
         break;
-        
+
       case CRYP_AES_GCM:
 
         /* AES GCM decryption */
@@ -1209,7 +1209,7 @@ HAL_StatusTypeDef HAL_CRYP_Decrypt(CRYP_HandleTypeDef *hcryp, uint32_t *Input, u
         /* AES CCM decryption */
         status = CRYP_AESCCM_Process(hcryp, Timeout);
         break;
-        
+
       default:
         hcryp->ErrorCode |= HAL_CRYP_ERROR_NOT_SUPPORTED;
         /* Change the CRYP peripheral state */
@@ -1369,7 +1369,7 @@ HAL_StatusTypeDef HAL_CRYP_Encrypt_IT(CRYP_HandleTypeDef *hcryp, uint32_t *Input
 
         status = CRYP_AES_Encrypt_IT(hcryp);
         break;
-        
+
       case CRYP_AES_GCM:
 
         status = CRYP_AESGCM_Process_IT(hcryp) ;
@@ -1379,7 +1379,7 @@ HAL_StatusTypeDef HAL_CRYP_Encrypt_IT(CRYP_HandleTypeDef *hcryp, uint32_t *Input
 
         status = CRYP_AESCCM_Process_IT(hcryp);
         break;
-        
+
       default:
         hcryp->ErrorCode |= HAL_CRYP_ERROR_NOT_SUPPORTED;
         /* Change the CRYP peripheral state */
@@ -1534,7 +1534,7 @@ HAL_StatusTypeDef HAL_CRYP_Decrypt_IT(CRYP_HandleTypeDef *hcryp, uint32_t *Input
         /* AES decryption */
         status = CRYP_AES_Decrypt_IT(hcryp);
         break;
-        
+
       case CRYP_AES_GCM:
 
         /* AES GCM decryption */
@@ -1546,7 +1546,7 @@ HAL_StatusTypeDef HAL_CRYP_Decrypt_IT(CRYP_HandleTypeDef *hcryp, uint32_t *Input
         /* AES CCMdecryption */
         status = CRYP_AESCCM_Process_IT(hcryp);
         break;
-        
+
       default:
         hcryp->ErrorCode |= HAL_CRYP_ERROR_NOT_SUPPORTED;
         /* Change the CRYP peripheral state */
@@ -1736,7 +1736,7 @@ HAL_StatusTypeDef HAL_CRYP_Encrypt_DMA(CRYP_HandleTypeDef *hcryp, uint32_t *Inpu
         CRYP_SetDMAConfig(hcryp, (uint32_t)(hcryp->pCrypInBuffPtr), ((uint16_t)(hcryp->Size) / 4U),
                           (uint32_t)(hcryp->pCrypOutBuffPtr));
         break;
-        
+
       case CRYP_AES_GCM:
         /* AES GCM encryption */
         status = CRYP_AESGCM_Process_DMA(hcryp) ;
@@ -1746,7 +1746,7 @@ HAL_StatusTypeDef HAL_CRYP_Encrypt_DMA(CRYP_HandleTypeDef *hcryp, uint32_t *Inpu
         /* AES CCM encryption */
         status = CRYP_AESCCM_Process_DMA(hcryp);
         break;
-        
+
       default:
         hcryp->ErrorCode |= HAL_CRYP_ERROR_NOT_SUPPORTED;
         /* Change the CRYP peripheral state */
@@ -1932,7 +1932,7 @@ HAL_StatusTypeDef HAL_CRYP_Decrypt_DMA(CRYP_HandleTypeDef *hcryp, uint32_t *Inpu
         /* AES decryption */
         status = CRYP_AES_Decrypt_DMA(hcryp);
         break;
-        
+
       case CRYP_AES_GCM:
         /* AES GCM decryption */
         status = CRYP_AESGCM_Process_DMA(hcryp) ;
@@ -1942,7 +1942,7 @@ HAL_StatusTypeDef HAL_CRYP_Decrypt_DMA(CRYP_HandleTypeDef *hcryp, uint32_t *Inpu
         /* AES CCM decryption */
         status = CRYP_AESCCM_Process_DMA(hcryp);
         break;
-        
+
       default:
         hcryp->ErrorCode |= HAL_CRYP_ERROR_NOT_SUPPORTED;
         /* Change the CRYP peripheral state */
@@ -2051,7 +2051,7 @@ void HAL_CRYP_IRQHandler(CRYP_HandleTypeDef *hcryp)
     {
       CRYP_AES_IT(hcryp); /*AES*/
     }
-    
+
     else if ((hcryp->Init.Algorithm == CRYP_AES_GCM) || (hcryp->Init.Algorithm == CRYP_CR_ALGOMODE_AES_CCM))
     {
       /* if header phase */
@@ -2064,7 +2064,7 @@ void HAL_CRYP_IRQHandler(CRYP_HandleTypeDef *hcryp)
         CRYP_GCMCCM_SetPayloadPhase_IT(hcryp);
       }
     }
-    
+
     else
     {
       /* Nothing to do */
@@ -5916,7 +5916,7 @@ static HAL_StatusTypeDef CRYP_GCMCCM_SetHeaderPhase_DMA(CRYP_HandleTypeDef *hcry
   {
     headersize_in_bytes = hcryp->Init.HeaderSize;
   }
-  
+
   if (headersize_in_bytes != 0U)
   {
 

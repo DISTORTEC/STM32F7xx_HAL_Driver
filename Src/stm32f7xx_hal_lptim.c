@@ -232,7 +232,7 @@ HAL_StatusTypeDef HAL_LPTIM_Init(LPTIM_HandleTypeDef *hlptim)
 
   assert_param(IS_LPTIM_CLOCK_SOURCE(hlptim->Init.Clock.Source));
   assert_param(IS_LPTIM_CLOCK_PRESCALER(hlptim->Init.Clock.Prescaler));
-  if ((hlptim->Init.Clock.Source == LPTIM_CLOCKSOURCE_ULPTIM) 
+  if ((hlptim->Init.Clock.Source == LPTIM_CLOCKSOURCE_ULPTIM)
    || (hlptim->Init.CounterSource == LPTIM_COUNTERSOURCE_EXTERNAL))
   {
     assert_param(IS_LPTIM_CLOCK_POLARITY(hlptim->Init.UltraLowPowerClock.Polarity));
@@ -276,7 +276,7 @@ HAL_StatusTypeDef HAL_LPTIM_Init(LPTIM_HandleTypeDef *hlptim)
   /* Get the LPTIMx CFGR value */
   tmpcfgr = hlptim->Instance->CFGR;
 
-  if ((hlptim->Init.Clock.Source == LPTIM_CLOCKSOURCE_ULPTIM) 
+  if ((hlptim->Init.Clock.Source == LPTIM_CLOCKSOURCE_ULPTIM)
    || (hlptim->Init.CounterSource == LPTIM_COUNTERSOURCE_EXTERNAL))
   {
     tmpcfgr &= (uint32_t)(~(LPTIM_CFGR_CKPOL | LPTIM_CFGR_CKFLT));
@@ -307,7 +307,7 @@ HAL_StatusTypeDef HAL_LPTIM_Init(LPTIM_HandleTypeDef *hlptim)
   }
 
   /* Configure LPTIM external clock polarity and digital filter */
-  if ((hlptim->Init.Clock.Source == LPTIM_CLOCKSOURCE_ULPTIM) 
+  if ((hlptim->Init.Clock.Source == LPTIM_CLOCKSOURCE_ULPTIM)
    || (hlptim->Init.CounterSource == LPTIM_COUNTERSOURCE_EXTERNAL))
   {
     tmpcfgr |= (hlptim->Init.UltraLowPowerClock.Polarity |

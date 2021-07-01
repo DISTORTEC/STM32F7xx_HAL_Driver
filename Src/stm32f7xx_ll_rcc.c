@@ -177,7 +177,7 @@ ErrorStatus LL_RCC_DeInit(void)
 
   /* Read CR register */
   vl_mask = LL_RCC_ReadReg(CR);
-  
+
   /* Reset HSEON, HSEBYP, PLLON, CSSON, PLLI2SON and PLLSAION bits */
   CLEAR_BIT(vl_mask, (RCC_CR_HSEON | RCC_CR_HSEBYP | RCC_CR_PLLON | RCC_CR_CSSON | RCC_CR_PLLSAION | RCC_CR_PLLI2SON));
 

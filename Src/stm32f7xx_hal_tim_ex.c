@@ -1509,8 +1509,8 @@ HAL_StatusTypeDef HAL_TIMEx_PWMN_Stop_DMA(TIM_HandleTypeDef *htim, uint32_t Chan
 /**
   * @brief  Starts the TIM One Pulse signal generation on the complementary
   *         output.
-  * @note OutputChannel must match the pulse output channel chosen when calling 
-  *       @ref HAL_TIM_OnePulse_ConfigChannel(). 
+  * @note OutputChannel must match the pulse output channel chosen when calling
+  *       @ref HAL_TIM_OnePulse_ConfigChannel().
   * @param  htim TIM One Pulse handle
   * @param  OutputChannel pulse output channel to enable
   *          This parameter can be one of the following values:
@@ -1558,8 +1558,8 @@ HAL_StatusTypeDef HAL_TIMEx_OnePulseN_Start(TIM_HandleTypeDef *htim, uint32_t Ou
 /**
   * @brief  Stops the TIM One Pulse signal generation on the complementary
   *         output.
-  * @note OutputChannel must match the pulse output channel chosen when calling 
-  *       @ref HAL_TIM_OnePulse_ConfigChannel(). 
+  * @note OutputChannel must match the pulse output channel chosen when calling
+  *       @ref HAL_TIM_OnePulse_ConfigChannel().
   * @param  htim TIM One Pulse handle
   * @param  OutputChannel pulse output channel to disable
   *          This parameter can be one of the following values:
@@ -1597,8 +1597,8 @@ HAL_StatusTypeDef HAL_TIMEx_OnePulseN_Stop(TIM_HandleTypeDef *htim, uint32_t Out
 /**
   * @brief  Starts the TIM One Pulse signal generation in interrupt mode on the
   *         complementary channel.
-  * @note OutputChannel must match the pulse output channel chosen when calling 
-  *       @ref HAL_TIM_OnePulse_ConfigChannel(). 
+  * @note OutputChannel must match the pulse output channel chosen when calling
+  *       @ref HAL_TIM_OnePulse_ConfigChannel().
   * @param  htim TIM One Pulse handle
   * @param  OutputChannel pulse output channel to enable
   *          This parameter can be one of the following values:
@@ -1652,8 +1652,8 @@ HAL_StatusTypeDef HAL_TIMEx_OnePulseN_Start_IT(TIM_HandleTypeDef *htim, uint32_t
 /**
   * @brief  Stops the TIM One Pulse signal generation in interrupt mode on the
   *         complementary channel.
-  * @note OutputChannel must match the pulse output channel chosen when calling 
-  *       @ref HAL_TIM_OnePulse_ConfigChannel(). 
+  * @note OutputChannel must match the pulse output channel chosen when calling
+  *       @ref HAL_TIM_OnePulse_ConfigChannel().
   * @param  htim TIM One Pulse handle
   * @param  OutputChannel pulse output channel to disable
   *          This parameter can be one of the following values:

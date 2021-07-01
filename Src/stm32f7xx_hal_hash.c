@@ -2965,11 +2965,11 @@ HAL_StatusTypeDef HASH_Start_DMA(HASH_HandleTypeDef *hhash, uint8_t *pInBuffer, 
   HAL_StatusTypeDef status ;
   HAL_HASH_StateTypeDef State_tmp = hhash->State;
 
-  
+
   /* Make sure the input buffer size (in bytes) is a multiple of 4 when MDMAT bit is set
      (case of multi-buffer HASH processing) */
   assert_param(IS_HASH_DMA_MULTIBUFFER_SIZE(Size));
-  
+
   /* If State is ready or suspended, start or resume polling-based HASH processing */
   if ((State_tmp == HAL_HASH_STATE_READY) || (State_tmp == HAL_HASH_STATE_SUSPENDED))
   {

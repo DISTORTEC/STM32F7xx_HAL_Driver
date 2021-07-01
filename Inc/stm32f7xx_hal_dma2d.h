@@ -318,7 +318,7 @@ typedef void (*pDMA2D_CallbackTypeDef)(DMA2D_HandleTypeDef *hdma2d); /*!< Pointe
 /** @defgroup DMA2D_Aliases DMA2D API Aliases
   * @{
   */
-#define HAL_DMA2D_DisableCLUT       HAL_DMA2D_CLUTLoading_Abort    /*!< Aliased to HAL_DMA2D_CLUTLoading_Abort 
+#define HAL_DMA2D_DisableCLUT       HAL_DMA2D_CLUTLoading_Abort    /*!< Aliased to HAL_DMA2D_CLUTLoading_Abort
                                                                         for compatibility with legacy code */
 /**
   * @}

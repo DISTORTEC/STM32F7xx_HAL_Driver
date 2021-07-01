@@ -86,9 +86,9 @@
        A DMA request can be generated when an external trigger (but not a software trigger)
        occurs if DMA1 requests are enabled using HAL_DAC_Start_DMA().
        DMA1 requests are mapped as following:
-      (#) DAC channel1 mapped on DMA1 Stream5 channel7 which must be 
+      (#) DAC channel1 mapped on DMA1 Stream5 channel7 which must be
           already configured
-      (#) DAC channel2 mapped on DMA1 Stream6 channel7 which must be 
+      (#) DAC channel2 mapped on DMA1 Stream6 channel7 which must be
           already configured
 
      [..]

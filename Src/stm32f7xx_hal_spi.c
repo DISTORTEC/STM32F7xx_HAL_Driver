@@ -3671,7 +3671,7 @@ static void SPI_2linesRxISR_16BITCRC(struct __SPI_HandleTypeDef *hspi)
   /* Read 16bit CRC to flush Data Register */
   tmpreg = READ_REG(hspi->Instance->DR);
   /* To avoid GCC warning */
-  UNUSED(tmpreg);  
+  UNUSED(tmpreg);
 
   /* Disable RXNE interrupt */
   __HAL_SPI_DISABLE_IT(hspi, SPI_IT_RXNE);
@@ -4021,7 +4021,7 @@ static HAL_StatusTypeDef SPI_WaitFifoStateUntilTimeout(SPI_HandleTypeDef *hspi, 
       if(count == 0U)
       {
         tmp_timeout = 0U;
-      }      
+      }
       count--;
     }
   }
