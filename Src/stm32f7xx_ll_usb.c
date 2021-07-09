@@ -1943,9 +1943,9 @@ HAL_StatusTypeDef USB_HC_Halt(USB_OTG_GlobalTypeDef *USBx, uint8_t hc_num)
 {
   uint32_t USBx_BASE = (uint32_t)USBx;
   uint32_t hcnum = (uint32_t)hc_num;
-  uint32_t count = 0U;
-  uint32_t HcEpType = (USBx_HC(hcnum)->HCCHAR & USB_OTG_HCCHAR_EPTYP) >> 18;
-  uint32_t ChannelEna = (USBx_HC(hcnum)->HCCHAR & USB_OTG_HCCHAR_CHENA) >> 31;
+  uint32_t hcchar = USBx_HC(hcnum)->HCCHAR;
+  uint32_t HcEpType = (hcchar & USB_OTG_HCCHAR_EPTYP) >> 18;
+  uint32_t ChannelEna = (hcchar & USB_OTG_HCCHAR_CHENA) >> 31;
 
   if (((USBx->GAHBCFG & USB_OTG_GAHBCFG_DMAEN) == USB_OTG_GAHBCFG_DMAEN) &&
       (ChannelEna == 0U))
@@ -1953,52 +1953,21 @@ HAL_StatusTypeDef USB_HC_Halt(USB_OTG_GlobalTypeDef *USBx, uint8_t hc_num)
     return HAL_OK;
   }
 
+  hcchar = (hcchar & ~USB_OTG_HCCHAR_CHENA) | USB_OTG_HCCHAR_CHDIS;
+
   /* Check for space in the request queue to issue the halt. */
   if ((HcEpType == HCCHAR_CTRL) || (HcEpType == HCCHAR_BULK))
   {
-    USBx_HC(hcnum)->HCCHAR |= USB_OTG_HCCHAR_CHDIS;
-
-    if ((USBx->GAHBCFG & USB_OTG_GAHBCFG_DMAEN) == 0U)
-    {
-      if ((USBx->HNPTXSTS & (0xFFU << 16)) == 0U)
-      {
-        USBx_HC(hcnum)->HCCHAR &= ~USB_OTG_HCCHAR_CHENA;
-        USBx_HC(hcnum)->HCCHAR |= USB_OTG_HCCHAR_CHENA;
-        do
-        {
-          if (++count > 1000U)
-          {
-            break;
-          }
-        } while ((USBx_HC(hcnum)->HCCHAR & USB_OTG_HCCHAR_CHENA) == USB_OTG_HCCHAR_CHENA);
-      }
-      else
-      {
-        USBx_HC(hcnum)->HCCHAR |= USB_OTG_HCCHAR_CHENA;
-      }
-    }
+    if ((USBx->HNPTXSTS & (0xFFU << 16)) != 0U)
+      hcchar |= USB_OTG_HCCHAR_CHENA;
   }
   else
   {
-    USBx_HC(hcnum)->HCCHAR |= USB_OTG_HCCHAR_CHDIS;
-
-    if ((USBx_HOST->HPTXSTS & (0xFFU << 16)) == 0U)
-    {
-      USBx_HC(hcnum)->HCCHAR &= ~USB_OTG_HCCHAR_CHENA;
-      USBx_HC(hcnum)->HCCHAR |= USB_OTG_HCCHAR_CHENA;
-      do
-      {
-        if (++count > 1000U)
-        {
-          break;
-        }
-      } while ((USBx_HC(hcnum)->HCCHAR & USB_OTG_HCCHAR_CHENA) == USB_OTG_HCCHAR_CHENA);
-    }
-    else
-    {
-      USBx_HC(hcnum)->HCCHAR |= USB_OTG_HCCHAR_CHENA;
-    }
+    if ((USBx_HOST->HPTXSTS & (0xFFU << 16)) != 0U)
+      hcchar |= USB_OTG_HCCHAR_CHENA;
   }
+
+  USBx_HC(hcnum)->HCCHAR = hcchar;
 
   return HAL_OK;
 }
